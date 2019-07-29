@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
+    # before_action :require_login
+    # skip_before_action :require_login, only: [:index, :new]
+
     def index
         @users = User.all
+        @user = User.new
     end
 
     def new
@@ -9,6 +13,7 @@ class UsersController < ApplicationController
     end
 
     def create
+        # session[:username] = params[:user][:username]
         @user = User.new
         @user.name = params[:user][:name]
         @user.username = params[:user][:username]
@@ -18,10 +23,13 @@ class UsersController < ApplicationController
     end
 
     def show
-        
         @user = User.find_by_slug(params[:slug])
         # @user = User.find(params[:id])
         @userteams = UserTeam.all
         @projects = Project.all
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :username
     end
 end
