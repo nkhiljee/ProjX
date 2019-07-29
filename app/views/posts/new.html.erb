@@ -1,0 +1,13 @@
+<h1>Create a new post:</h1>
+
+
+<%= form_for @post do  |f| %>
+<%= f.label :title %>:
+<%= f.text_field :title %><br/>
+<%= f.label :description %>:
+<%= f.text_field :description %><br/>
+<%= f.label :files_to_be_added %>:
+<%= f.text_field :file %><br/>
+<%= f.collection_select :user_team_id, @ut, :id, @ut_names %>
+<%= f.submit "Add Post"  %>
+<% end %>
