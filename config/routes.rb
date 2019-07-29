@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   resources :teams
   resources :posts
   resources :projects
-  resources :users #only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  # get '/users/:slug', to: 'user#show'
+   get '/users/:slug', to: 'users#show'
 
 
 

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        
         @user = User.find_by_slug(params[:slug])
         # @user = User.find(params[:id])
         @userteams = UserTeam.all
