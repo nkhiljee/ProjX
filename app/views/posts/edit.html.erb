@@ -1,0 +1,8 @@
+<h1>Edit this post:</h1>
+
+<%= form_for @post, get: new_post_path do |f| %>
+<%= f.submit "Delete Post" %>
+<% end %>
+
+simple button
+<%= link_to '<button type="button">New Post</button>'.html_safe, new_post_path %>
