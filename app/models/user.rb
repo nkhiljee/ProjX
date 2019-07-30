@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :teams
-    has_many :teams, through: :userteams
+    has_many :user_teams
+    has_many :teams, through: :user_teams
 
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -21,6 +21,14 @@ class User < ApplicationRecord
         User.all.find do |user| 
             user.slug == s_find
         end
+    end
+
+    def num_posts
+        # count the number of posts each user has
+    end
+
+    def num_posts_per_day
+        # count the number of posts each user has per day
     end
 
 end

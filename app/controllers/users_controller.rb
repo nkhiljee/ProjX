@@ -25,9 +25,15 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by_slug(params[:slug])
+        # @user = User.find(session[:user_id])
         # @user = User.find(params[:id])
-        @userteams = UserTeam.all
-        @projects = Project.all
+        @userteams = @user.teams
+        @projects = []
+        @userteams.each  do |team|
+            team.projects.each do |project|
+                @projects << project.name
+            end
+        end
     end
 
     def require_login
