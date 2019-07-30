@@ -27,7 +27,8 @@ class User < ApplicationRecord
     end
 
     def num_posts
-        # count the number of posts each user has
+        posts = 0
+        # user = User.find(session[:user_id])
     end
 
     def num_posts_per_day

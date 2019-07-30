@@ -33,15 +33,5 @@ class PostsController < ApplicationController
         params.require(:post).permit(:title, :description, :file, :user_team_id)
     end
 
-    # def ut_names  
-    #     @ut_names = @ut.map do |ut|
-    #         ut.team.name
-    #     end
-    #     @name= @ut_names.uniq!.each do |n|
-    #         n
-    #     end
-    #     @name
-    # end
-
 
 end
