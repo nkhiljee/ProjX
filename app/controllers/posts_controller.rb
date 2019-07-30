@@ -1,16 +1,17 @@
 class PostsController < ApplicationController
     
     def new
+        # user = User.find(session[:user_id])
+        user = User.first
+
+        @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
         @post = Post.new
-        @ut = UserTeam.all
-        @ut_names = @ut.map do |ut|
-            ut.team.name
-        end.uniq!
         # byebug
     end 
 
     def create
-        @post = Post.create(posts_params)
+        post = Post.create(posts_params)
+        # byebug
     end
 
     def edit

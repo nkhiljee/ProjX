@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :teams
-    has_many :teams, through: :userteams
+    has_many :user_teams
+    has_many :teams, through: :user_teams
 
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
