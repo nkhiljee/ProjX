@@ -8,6 +8,6 @@
 <%= f.text_field :description %><br/>
 <%= f.label :files_to_be_added %>:
 <%= f.text_field :file %><br/>
-<%= f.collection_select :user_team_id, @ut, :id, @ut_names %>
+<%= f.collection_select :user_team_id, @uts, :id, :team_name %>
 <%= f.submit "Add Post"  %>
 <% end %>
