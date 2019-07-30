@@ -2,6 +2,9 @@ class User < ApplicationRecord
     has_many :user_teams
     has_many :teams, through: :user_teams
 
+    validates :name, :username, :email, presence: true
+    validates :username, :email, uniqueness: true
+
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         result_slug = ""

@@ -1,3 +1,4 @@
+<div align="center">
 <h1>Please Login</h1>
 <%= form_for @user, url: { action: "create"} do |f| %>
 <%= f.label :username, "Username" %><br>
@@ -5,6 +6,19 @@
 <%= f.submit "Login" %>
 <% end %>
 <%= link_to'<button type="button">New User</button>'.html_safe, new_user_path %>
+<BR><BR>
+    <% if flash[:errors] %>
+    <b>Errors:</b>
+    <ul>
+        <% flash[:errors].each do |e| %>
+            <li>
+                <%= e %>
+            </li>
+        <% end %>
+    </ul>
+    <% end %>
+    
+    </div>
 
 
 

@@ -19,8 +19,14 @@ class UsersController < ApplicationController
         @user.name = params[:user][:name]
         @user.username = params[:user][:username]
         @user.email = params[:user][:email]
-        @user.save
-        redirect_to user_path(@user.slug)
+
+        if @user.valid?
+            @user.save
+            redirect_to user_path(@user.slug)
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to new_user_path
+        end
     end
 
     def show
