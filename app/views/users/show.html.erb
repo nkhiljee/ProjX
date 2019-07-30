@@ -5,19 +5,13 @@
 <h2><%="Teams"%></h2>
 <ul>
     <% @userteams.each do |team| %>
-    <%# if team.user_id == @user.id %>
-        <li>
-            <%= team.name %>
-        </li>
-    <%# end %> 
+        <li><%= team.name %></li>
     <% end %> 
 </ul>
 <br>
 <h2><%="Projects"%></h2>
 <ul>
     <% @projects.each do |project| %>
-        <li>
-            <%= project %>
-        </li>
+        <li><%= project %></li>
     <% end %> 
 </ul>
