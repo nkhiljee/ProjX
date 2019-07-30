@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
-    def index
-        erb :'views/index.html'
+    def home
+        render  '/applications/home.html'
     end
+
 end
