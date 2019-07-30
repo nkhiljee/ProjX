@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_teams
-  resources :teams
+  resources :teams, only: [:index, :new, :create]
   resources :posts
   resources :projects
   resources :users, only: [:index, :new, :create]
@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
    get '/', to: 'application#home'
    get '/users/:slug', to: 'users#show'
+   get '/teams/:slug', to: 'teams#show'
+   get '/login', to: 'sessions#new'
+   post '/login', to: 'sessions#create'
+   post '/logout', to: 'sessions#destroy'
+
 
 
 

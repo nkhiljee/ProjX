@@ -5,9 +5,11 @@
 <h2><%="Teams"%></h2>
 <ul>
     <% @userteams.each do |team| %>
+    <%# if team.user_id == @user.id %>
         <li>
-            <%= team.team.name %>
+            <%= team.name %>
         </li>
+    <%# end %> 
     <% end %> 
 </ul>
 <br>
@@ -15,7 +17,7 @@
 <ul>
     <% @projects.each do |project| %>
         <li>
-            <%= project.name %>
+            <%= project %>
         </li>
     <% end %> 
 </ul>
