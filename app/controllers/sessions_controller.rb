@@ -1,18 +1,28 @@
 class SessionsController < ApplicationController
 
+    skip_before_action :authenticated, only: [:new, :create]
+
+    # def create
+    #     session[:user_id] = params[:user_id]
+    #     redirect_to "/users/#{session[:user_id]}"
+    # end
+
     def new
-        # nothing to do here!
-        @user = User.new
     end
- 
+
     def create
-        session[:user_id] = params[:user_id]
-        redirect_to '/'
-        
+        @user = User.find_by(email: params[:email])
+
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id 
+            redirect_to "/users/#{@user.slug}"
+        else
+            redirect_to login_path
+        end
     end
 
     def destroy
-        session.delete :user_id
+        session.delete(:user_id)
     end
 
 

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :user_teams
-  resources :teams, only: [:index, :new, :create]
+  resources :teams, only: [:show]
   resources :posts
   resources :projects
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
    get '/', to: 'application#home'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
    get '/teams/:id', to: 'teams#show'
    get '/login', to: 'sessions#new'
    post '/login', to: 'sessions#create'
-   post '/logout', to: 'sessions#destroy'
+   delete '/logout', to: 'sessions#destroy'
 
 
 
