@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
     # counts the amount of posts a user has
     def num_posts
-        posts = 0
+        posts = 0k
         self.user_teams.each do |userTeam|
             userTeam.posts.each do |post|
                 posts += 1

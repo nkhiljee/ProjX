@@ -3,6 +3,12 @@ class TeamsController < ApplicationController
     # before_action :require_login
     # skip_before_action :require_login, only: [:index, :new]
     
+    def user_posts
+        UserTeam.each do |ut|
+            ut
+        end
+
+    end
     
     def create
         redirect_to user_path(@team)
@@ -21,8 +27,8 @@ class TeamsController < ApplicationController
         # @user = User.find(params[:id])
     end
 
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
-    end
+    # def require_login
+    #     return head(:forbidden) unless session.include? :user_id
+    # end
 
 end

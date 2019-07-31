@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
         if @user.valid?
             @user.save
-            redirect_to user_path(@user.slug)
+            redirect_to users_path(@user.slug)
         else
             flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:user => [:name, :username, :email, :password, :password_confirmation])
+        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
     end
 
     def require_login
