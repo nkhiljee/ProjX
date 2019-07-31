@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
 
     before_action :authenticated, except: [:home]
-
+    
     def home
+        # byebug
+       
+        if session[:user_id]
+            @userSlug = current_user.slug
+        end
         render  '/applications/home.html'
     end
 
