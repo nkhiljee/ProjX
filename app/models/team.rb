@@ -42,7 +42,7 @@ class Team < ApplicationRecord
             users +=1
         end
         users
-        byebug
+
     end
 
     def next_project_due
@@ -51,19 +51,15 @@ class Team < ApplicationRecord
             if @team.projects[1]
                 if project.days_left_for_project > @team.projects[index+1].days_left_for_project 
                     @dueProject = @team.projects[index+1]
+                    byebug
                 else
-                    @dueProject = project.name
+                    @dueProject = project
                 end
             else
-                @dueProject = project.name
+                @dueProject = project
             end
-            
-
         end
+        @dueProject.name
     end
     
-
-    def num_posts_per_day
-        # count the number of posts each team has per day
-    end
 end
