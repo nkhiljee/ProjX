@@ -11,18 +11,22 @@ class SessionsController < ApplicationController
     end
 
     def create
+        # byebug
         @user = User.find_by(email: params[:email])
 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
-            redirect_to "/users/#{@user.slug}"
+            session[:user_slug] = @user.slug
+            redirect_to "/users/#{session[:user_slug]}"
         else
             redirect_to login_path
         end
     end
 
-    def destroy
+    def logout
         session.delete(:user_id)
+        session.delete(:user_slug)
+        redirect_to '/'
     end
 
 

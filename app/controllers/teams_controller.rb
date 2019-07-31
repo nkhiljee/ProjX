@@ -17,6 +17,7 @@ class TeamsController < ApplicationController
     
     
     def show
+<<<<<<< HEAD
         # @team = Team.find_by_slug(params[:slug])   
         # @user = User.find_by_slug(params[:slug])
 
@@ -24,6 +25,15 @@ class TeamsController < ApplicationController
         @team = Team.find(params[:id])
         # byebug
         @post = Post.find(params[:id])
+=======
+        @team = Team.find_by_slug(params[:slug])   
+        @user = User.find(session[:user_id])
+        @userteam = @team.user_teams
+        # byebug
+
+        # @team = Team.find(params[:id])
+        # @post = Post.find(params[:id])
+>>>>>>> master
         # @user = User.find(params[:id])
     end
 

@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :name, :username, :email, :password, presence: true
     validates :username, :email, uniqueness: true
+    validates :username, format: { with: /\A[a-z0-9]+\z/, message: "only allows lowercase" }
 
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -28,6 +29,7 @@ class User < ApplicationRecord
 
     # counts the amount of posts a user has
     def num_posts
+<<<<<<< HEAD
         posts = 0k
         self.user_teams.each do |userTeam|
             userTeam.posts.each do |post|
@@ -36,6 +38,24 @@ class User < ApplicationRecord
         end
         byebug
         posts 
+=======
+        posts = 0
+        self.user_teams.each do |userTeam|
+            userTeam.posts.each do |post|
+                posts +=1
+            end
+        end
+        posts
+    end 
+
+    def num_teams
+        teams = 0
+        self.user_teams.each do |userTeam|
+            userTeam.team
+            teams +=1
+        end
+        teams
+>>>>>>> master
     end
 
 

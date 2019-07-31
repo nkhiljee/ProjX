@@ -1,8 +1,35 @@
-<h1>Team Name: <%@team.name%> </h1>
-<%=@post.title%><br/>
-<%=@post.description%><br/>
+<h1>Team Name:</h1> 
+<h3><%= @team.name%></h3> 
+<%#=@post.title%><br/>
+<%#=@post.description%><br/>
 
-<h1>Team Members: <%@user.name%></h1>
+<h1>Team Members:</h1>
+<ul>
+    <% @userteam.each do |ut| %>
+        <li><%= ut.user.name%></li>
+    <%end %>
+</ul>
+
+<h2><%="Posts"%></h2>
+<ul>
+    <% @userteam.each do |ut| %>
+
+        <% ut.posts.each do |post| %>
+            <%# posts.each do |post| %>
+
+                <li><%= post.title %></li>
+                <li><%= post.description %></li>
+
+                <li>
+                        <%= ut.user.username %>
+                </li>
+      
+                <br/>
+                <br/>
+            <%#end %>
+        <%end %>
+    <% end %> 
+</ul>
 
 
 
