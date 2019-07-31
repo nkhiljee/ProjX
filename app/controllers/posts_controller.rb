@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
     
     def new
-        # user = User.find(session[:user_id])
-        user = User.first
+        if session[:user_id]
+            user = User.find(session[:user_id])
+            # user = User.first
 
-        @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
-        @post = Post.new
+            @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
+            @post = Post.new
+        else
+            redirect_to '/login'
+        end
         # byebug
     end 
 

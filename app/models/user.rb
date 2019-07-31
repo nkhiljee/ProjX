@@ -26,10 +26,18 @@ class User < ApplicationRecord
         end
     end
 
+    # counts the amount of posts a user has
     def num_posts
         posts = 0
-        # user = User.find(session[:user_id])
+        self.user_teams.each do |userTeam|
+            userTeam.posts.each do |post|
+                posts += 1
+            end
+        end
+        byebug
+        posts 
     end
+
 
     def num_posts_per_day
         # count the number of posts each user has per day
