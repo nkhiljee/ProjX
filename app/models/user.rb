@@ -29,7 +29,21 @@ class User < ApplicationRecord
 
     def num_posts
         posts = 0
-        # user = User.find(session[:user_id])
+        self.user_teams.each do |userTeam|
+            userTeam.posts.each do |post|
+                posts +=1
+            end
+        end
+        posts
+    end 
+
+    def num_teams
+        teams = 0
+        self.user_teams.each do |userTeam|
+            userTeam.team
+            teams +=1
+        end
+        teams
     end
 
     def num_posts_per_day
