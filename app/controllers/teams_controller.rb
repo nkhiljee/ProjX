@@ -13,13 +13,16 @@ class TeamsController < ApplicationController
     def show
         @team = Team.find_by_slug(params[:slug])   
         @user = User.find(session[:user_id])
+        @userteam = UserTeam.all
+        # byebug
+
         # @team = Team.find(params[:id])
-        @post = Post.find(params[:id])
+        # @post = Post.find(params[:id])
         # @user = User.find(params[:id])
     end
 
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
-    end
+    # def require_login
+    #     return head(:forbidden) unless session.include? :user_id
+    # end
 
 end

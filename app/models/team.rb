@@ -7,7 +7,7 @@ class Team < ApplicationRecord
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         result_slug = ""
-        self[:username].split("").each do |c|
+        self[:name].split("").each do |c|
             if  letters.include?(c)
                 result_slug = result_slug+c.downcase
             elsif c == " "
