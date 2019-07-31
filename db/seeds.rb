@@ -16,12 +16,12 @@ Post.destroy_all
 t1 = Team.create(name: "Team1")
 t2 = Team.create(name: "Team2")
 
-u1 = User.create(name: "Name1", username: "Username1", email: "username1@gmail.com", password: "password")
-u2 = User.create(name: "Name2", username: "Username2", email: "username2@gmail.com", password: "password")
-u3 = User.create(name: "Name3", username: "Username3", email: "username3@gmail.com", password: "password")
-u4 = User.create(name: "Name4", username: "Username4", email: "username4@gmail.com", password: "password")
-u5 = User.create(name: "Name5", username: "Username5", email: "username5@gmail.com", password: "password")
-u6 = User.create(name: "Name6", username: "Username6", email: "username6@gmail.com", password: "password")
+u1 = User.create(name: "Name1", username: "username1", email: "username1@gmail.com", password: "password")
+u2 = User.create(name: "Name2", username: "username2", email: "username2@gmail.com", password: "password")
+u3 = User.create(name: "Name3", username: "username3", email: "username3@gmail.com", password: "password")
+u4 = User.create(name: "Name4", username: "username4", email: "username4@gmail.com", password: "password")
+u5 = User.create(name: "Name5", username: "username5", email: "username5@gmail.com", password: "password")
+u6 = User.create(name: "Name6", username: "username6", email: "username6@gmail.com", password: "password")
 
 p1 = Project.create(name: "Project1", description: "First Project", start: "03/02/2019", finish: "10/10/2019", team_id: t1.id)
 p2 = Project.create(name: "Project2", description: "Second Project", start: "04/21/2019", finish: "11/15/2019", team_id: t2.id)

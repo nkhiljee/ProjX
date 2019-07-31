@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
     def show
         @team = Team.find_by_slug(params[:slug])   
         @user = User.find(session[:user_id])
-        @userteam = UserTeam.all
+        @userteam = @team.user_teams
         # byebug
 
         # @team = Team.find(params[:id])

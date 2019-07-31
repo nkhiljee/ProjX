@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
     
     def new
-        # user = User.find(session[:user_id])
-        user = User.first
+        user = User.find(session[:user_id])
+        # user = User.first
 
         @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
         @post = Post.new
@@ -10,7 +10,11 @@ class PostsController < ApplicationController
     end 
 
     def create
+        @ut = UserTeam.find(posts_params[:user_team_id])
+        @team = Team.find(@ut.team_id)
         post = Post.create(posts_params)
+        redirect_to "/teams/#{@team.slug}"
+
         # byebug
     end
 
