@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
     # before_action :require_login
     # skip_before_action :require_login, only: [:index, :new]
+    skip_before_action :authenticated, only: [:new, :create]
+
 
 
     def index
@@ -15,10 +17,10 @@ class UsersController < ApplicationController
 
     def create
         # session[:username] = params[:user][:username]
-        @user = User.new
-        @user.name = params[:user][:name]
-        @user.username = params[:user][:username]
-        @user.email = params[:user][:email]
+        @user = User.new(user_params)
+        # @user.name = params[:user][:name]
+        # @user.username = params[:user][:username]
+        # @user.email = params[:user][:email]
 
         if @user.valid?
             @user.save
@@ -40,6 +42,11 @@ class UsersController < ApplicationController
                 @projects << project.name
             end
         end
+    end
+    private
+
+    def user_params
+        params.require(:user).permit(:user => [:name, :username, :email, :password, :password_confirmation])
     end
 
     def require_login
