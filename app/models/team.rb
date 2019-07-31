@@ -4,10 +4,6 @@ class Team < ApplicationRecord
     has_many :users, through: :user_teams
 
 
-<<<<<<< HEAD
-    def num_projects
-        self.projects.length
-=======
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         result_slug = ""
@@ -27,7 +23,6 @@ class Team < ApplicationRecord
         Team.all.find do |team| 
             team.slug == s_find
         end
->>>>>>> master
     end
 
     def num_posts
@@ -49,6 +44,24 @@ class Team < ApplicationRecord
         users
         byebug
     end
+
+    def next_project_due
+        @team = self
+        @team.projects.each_with_index do |project, index|
+            if @team.projects[1]
+                if project.days_left_for_project > @team.projects[index+1].days_left_for_project 
+                    @dueProject = @team.projects[index+1]
+                else
+                    @dueProject = project.name
+                end
+            else
+                @dueProject = project.name
+            end
+            
+
+        end
+    end
+    
 
     def num_posts_per_day
         # count the number of posts each team has per day

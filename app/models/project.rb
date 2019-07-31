@@ -18,4 +18,6 @@ class Project < ApplicationRecord
             "Project has ended"
         end
     end
+
+    
 end
