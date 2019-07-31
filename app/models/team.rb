@@ -45,6 +45,24 @@ class Team < ApplicationRecord
         byebug
     end
 
+    def next_project_due
+        @team = self
+        @team.projects.each_with_index do |project, index|
+            if @team.projects[1]
+                if project.days_left_for_project > @team.projects[index+1].days_left_for_project 
+                    @dueProject = @team.projects[index+1]
+                else
+                    @dueProject = project.name
+                end
+            else
+                @dueProject = project.name
+            end
+            
+
+        end
+    end
+    
+
     def num_posts_per_day
         # count the number of posts each team has per day
     end
