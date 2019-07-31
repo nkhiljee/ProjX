@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         # @user.name = params[:user][:name]
         # @user.username = params[:user][:username]
         # @user.email = params[:user][:email]
-
+        # byebug
         if @user.valid?
             @user.save
             redirect_to user_path(@user.slug)
@@ -32,7 +32,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by_slug(params[:slug])
+        # @user = User.find_by_slug(params[:slug])
+        @user = User.find_by(username: params[:id])
+        # byebug
         # @user = User.find(session[:user_id])
         # @user = User.find(params[:id])
         @userteams = @user.teams
@@ -46,10 +48,10 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:user => [:name, :username, :email, :password, :password_confirmation])
+        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
     end
 
-    def require_login
-        return head(:forbidden) unless session.include? :username
-    end
+    # def require_login
+    #     return head(:forbidden) unless session.include? :username
+    # end
 end

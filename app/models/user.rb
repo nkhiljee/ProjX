@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :name, :username, :email, :password, presence: true
     validates :username, :email, uniqueness: true
+    validates :username, format: { with: /\A[a-z0-9]+\z/, message: "only allows lowercase" }
 
     def slug
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"

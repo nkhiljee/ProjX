@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-    # skip_before_action :authenticated, only: [:home]
-    before_action :authenticated, except: [:home]
 
+    before_action :authenticated, except: [:home]
 
     def home
         render  '/applications/home.html'
