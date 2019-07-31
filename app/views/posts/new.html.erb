@@ -1,13 +1,16 @@
-<h1>Create a new post:</h1>
-
-
-<%= form_for @post do  |f| %>
-<%= f.label :title %>:
-<%= f.text_field :title %><br/>
-<%= f.label :description %>:
-<%= f.text_field :description %><br/>
-<%= f.label :files_to_be_added %>:
-<%= f.text_field :file %><br/>
-<%= f.collection_select :user_team_id, @uts, :id, :team_name %>
-<%= f.submit "Add Post"  %>
-<% end %>
+<div class="user_feed">
+    <div class="center">
+        <h1>Create a new post:</h1>
+        <%= form_for @post do  |f| %>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %><br/><br>
+        <%= f.label :description %><br>
+        <%= f.text_field :description %><br/><br>
+        <%= f.label :link_a_file %><br>
+        <%= f.text_field :file %><br/><br>
+        <%= f.label :Select_team_for_post %><br>
+        <%= f.collection_select :user_team_id, @uts, :id, :team_name %><br><br>
+        <%= f.submit "Submit Post"  %>
+        <% end %>
+    </div>
+</div>

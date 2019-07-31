@@ -1,13 +1,14 @@
 <div class="user_feed">
     <div class="sidebar">
-        <h1><%=@user.username%></h1>
-        <h3><%="#{@user.name} Bio" %></h3>
-        <h4><%=@user.username%></h4>
-        <h4><%=@user.email%></h4>
-        <h4>Number of Posts: <%=@user.num_posts%></h4>
-        <h4>Number of Teams: <%=@user.num_teams%></h4>
+        <h4><b><%=@user.username%></b></h4><br>
+        <h4>User Info:</h4>
+        <h6><%="Name: #{@user.name}" %></h6>
+        <h6><%="Username: #{@user.username}"%></h6>
+        <h6><%=@user.email%></h6><br>
+        <h4>User Stats:</h4>
+        <h6>Number of Posts: <%=@user.num_posts%></h6>
+        <h6>Number of Teams: <%=@user.num_teams%></h6>
     </div>
-
 
     <div class="col1">
         <h2><%="Teams"%></h2>

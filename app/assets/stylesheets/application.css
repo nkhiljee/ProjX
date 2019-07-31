@@ -45,7 +45,7 @@
 
  #nav-bar ul li a:hover
  {
-     color: #000000!important;
+     color: #DDD!important;
  }
 
  .navbar
@@ -60,7 +60,7 @@
 
  .nav-link
  {
-     color: #505050!important;
+     color: #FFF!important;
      font-weight: 400;
      font-size: 18px;
  }
@@ -93,6 +93,7 @@
  .user_feed
  {
      height: calc(100vh - 61px)!important;
+     display: flex;
  } 
 
  .sidebar
@@ -102,18 +103,29 @@
      width: 33%;
      float: left;
      height: 100%;
+     padding-top: 20px;
+     padding-left: 20px;
  }
  
  .col1
  {
-     background-color: #FFF;
-     width: 67%;
+     background-color: #EEE;
+     float: left;
+     width: 100%;
      height: 100%;
-     padding-top 20px;
-     padding-left 40px;
+     padding-top: 20px;
+     padding-left: 40px;
  }
 
 /* FINISH USER PAGE */
+
+.center 
+{
+    text-align: center;
+    width: 100%;
+    padding-top: 40px;
+}
+
 
 /* START FOOTER */
 
