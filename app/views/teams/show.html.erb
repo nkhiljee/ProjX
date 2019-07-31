@@ -1,32 +1,45 @@
 <h1>Team Name:</h1> 
 <h3><%= @team.name%></h3> 
-<%#=@post.title%><br/>
-<%#=@post.description%><br/>
 
 <h1>Team Members:</h1>
 <ul>
     <% @userteam.each do |ut| %>
-        <li><%= ut.user.name%></li>
+        <li><%= link_to ut.user.name, user_path(@user.slug)%></li>
     <%end %>
 </ul>
+
+<h6>Total posts made by team: <%= @team.num_posts%></h6>
+<h6>Total number of team members: <%= @team.num_users%></h6>
+<h6>Next project due: <%= @team.next_project_due%></h6>
+<br/>
+<ul>
+<%@projects.each do |project| %>
+<li>
+<h5>Project Name: <%= project.name %></h5>
+<h6>Days left for Project: <%= project.days_left_for_project%></h6>
+</li>
+
+<% end %>
+</ul>
+
+
+
+
 
 <h2><%="Posts"%></h2>
 <ul>
     <% @userteam.each do |ut| %>
 
         <% ut.posts.each do |post| %>
-            <%# posts.each do |post| %>
-
-                <li><%= post.title %></li>
-                <li><%= post.description %></li>
+                <li><p>Project Title: <%= post.title %></li></p>
+                <li><p>Project Description: <%= post.description %></li></p>
 
                 <li>
-                        <%= ut.user.username %>
+                        <p>Posted by: <%= ut.user.username %></p>
                 </li>
       
                 <br/>
                 <br/>
-            <%#end %>
         <%end %>
     <% end %> 
 </ul>
