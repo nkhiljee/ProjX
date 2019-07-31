@@ -23,6 +23,7 @@
      position: sticky;
      top: 0;
      z-index: 10;
+     box-shadow: 10px 3px 5px rgba(0,0,0,.07) !important;
  }
 
  .navbar-brand img
@@ -63,13 +64,58 @@
      font-weight: 400;
      font-size: 18px;
  }
+/* END NAVIGATION */
+/* START CAROUSEL */
 
-img .d-block
+
+.carousel-caption
 {
-    height: calc(100vh - 61px)!important;
-} 
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial!important;
+}
+
+.carousel-caption h1
+{
+    color: #fff;
+    font-size: 72px;
+}
 
 
+.carousel-item img
+ {
+     height: calc(100vh - 61px)!important;
+ } 
+/* FINISH CAROUSEL */
+/* START USER PAGE */
+
+
+ .user_feed
+ {
+     height: calc(100vh - 61px)!important;
+ } 
+
+ .sidebar
+ {
+     background-color: #6B7A8F;
+     color: #FFF;
+     width: 33%;
+     float: left;
+     height: 100%;
+ }
+ 
+ .col1
+ {
+     background-color: #FFF;
+     width: 67%;
+     height: 100%;
+     padding-top 20px;
+     padding-left 40px;
+ }
+
+/* FINISH USER PAGE */
+
+/* START FOOTER */
 
  #footer
  {

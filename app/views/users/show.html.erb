@@ -1,26 +1,31 @@
-<h1><%=@user.username%></h1>
-<h3><%="#{@user.name} Bio" %></h3>
-<h4><%=@user.username%></h4>
-<h4><%=@user.email%></h4>
-<h4>Number of Posts: <%=@user.num_posts%></h4>
-<h4>Number of Teams: <%=@user.num_teams%></h4>
+<div class="user_feed">
+    <div class="sidebar">
+        <h1><%=@user.username%></h1>
+        <h3><%="#{@user.name} Bio" %></h3>
+        <h4><%=@user.username%></h4>
+        <h4><%=@user.email%></h4>
+        <h4>Number of Posts: <%=@user.num_posts%></h4>
+        <h4>Number of Teams: <%=@user.num_teams%></h4>
+    </div>
 
-<br>
 
-<h2><%="Teams"%></h2>
-<ul>
-    <% @userteams.each do |team| %>
-        <li><%= team.name %></li>
-    <% end %> 
-</ul>
-<br>
-<h2><%="Projects"%></h2>
-<ul>
-    <% @projects.each do |project| %>
-        <li><%= project.name %></li>
-        <li><%= project.description %></li>
-        <li><%= project.start %></li>
-        <li><%= project.finish %></li>
 
-    <% end %> 
-</ul>
+    <div class="col1">
+        <h2><%="Teams"%></h2>
+        <ul>
+        <% @userteams.each do |team| %>
+            <li><%= team.name %></li>
+        <% end %> 
+    </ul>
+    <br>
+    <h2><%="Projects"%></h2>
+    <ul>
+        <% @projects.each do |project| %>
+            <li><%= project.name %></li>
+            <li><%= project.description %></li>
+            <li><%= project.start %></li>
+            <li><%= project.finish %></li>
+        <% end %> 
+    </ul>
+    </div>
+</div>
