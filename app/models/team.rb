@@ -26,7 +26,23 @@ class Team < ApplicationRecord
     end
 
     def num_posts
-        # count the number of posts each team has
+        posts = 0
+        self.user_teams.each do |userTeam|
+            userTeam.posts.each do |post|
+                posts +=1
+            end
+        end
+        posts
+    end
+
+    def num_users
+        users = 0
+        self.user_teams.each do |userTeam|
+            userTeam.user
+            users +=1
+        end
+        users
+        byebug
     end
 
     def num_posts_per_day
