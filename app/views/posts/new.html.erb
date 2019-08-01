@@ -4,13 +4,15 @@
         <%= form_for @post do  |f| %>
         <%= f.label :title %><br>
         <%= f.text_field :title %><br/><br>
-        <%= f.label :description %><br>
-        <%= f.text_field :description %><br/><br>
+        <%= f.label :post_body %><br>
+        <%= f.text_area :description %><br/><br>
         <%= f.label :link_a_file %><br>
         <%= f.text_field :file %><br/><br>
         <%= f.label :Select_team_for_post %><br>
         <%= f.collection_select :user_team_id, @uts, :id, :team_name %><br><br>
         <%= f.submit "Submit Post"  %>
-        <% end %>
+        <% end %>   
     </div>
 </div>
+
+

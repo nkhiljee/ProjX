@@ -2,11 +2,6 @@ class SessionsController < ApplicationController
 
     skip_before_action :authenticated, only: [:new, :create]
 
-    # def create
-    #     session[:user_id] = params[:user_id]
-    #     redirect_to "/users/#{session[:user_id]}"
-    # end
-
     def new
     end
 

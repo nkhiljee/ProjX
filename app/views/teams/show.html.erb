@@ -10,7 +10,7 @@
 
 <h6>Total posts made by team: <%= @team.num_posts%></h6>
 <h6>Total number of team members: <%= @team.num_users%></h6>
-<h6>Next project due: <%= @team.next_project_due%></h6>
+<h6>Upcoming due project: <%= @team.next_project_due%></h6>
 <br/>
 <ul>
 <%@projects.each do |project| %>
@@ -18,30 +18,34 @@
 <h5>Project Name: <%= project.name %></h5>
 <h6>Days left for Project: <%= project.days_left_for_project%></h6>
 </li>
-
 <% end %>
-</ul>
+</ul><br/>
 
 
 
 
-
+<%= link_to '<button type="button">Create a New Post</button>'.html_safe, new_post_path %><br/>
+<br/>
 <h2><%="Posts"%></h2>
+
 <ul>
     <% @userteam.each do |ut| %>
 
         <% ut.posts.each do |post| %>
                 <li><p>Project Title: <%= post.title %></li></p>
                 <li><p>Project Description: <%= post.description %></li></p>
+                <li><p>Project files: <%= post.file %></li></p>
 
                 <li>
                         <p>Posted by: <%= ut.user.username %></p>
                 </li>
-      
+                <%= link_to '<button type="button">Edit This Post</button>'.html_safe, edit_post_path(post) %><br/>
                 <br/>
                 <br/>
         <%end %>
     <% end %> 
+
+    
 </ul>
 
 
