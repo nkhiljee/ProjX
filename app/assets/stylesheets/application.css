@@ -129,6 +129,7 @@
  {
      height: calc(100vh - 61px)!important;
      display: flex;
+     overflow: scroll;
  } 
 
  .sidebar
@@ -170,8 +171,14 @@
     text-align: center;
     width: 33%;
     padding-top: 40px;
+    
 }
 
+.center b
+{
+    color: red;
+    font-size: 20px;
+}
 
 /* TESTIMONIAL */
 
