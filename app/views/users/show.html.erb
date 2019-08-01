@@ -17,7 +17,7 @@
                 <li class="media">
                   <div class="media-body">
                     <h5 class="mt-0 mb-1">Name:</h5>
-                    <%= "#{team.name}" %>
+                    <%= link_to "#{team.name}", "/teams/#{team.slug}" %>
                   </div>
                 </li>
             <% end %> 
