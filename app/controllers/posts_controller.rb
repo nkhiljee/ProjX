@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
     def update
         # byebug 
+        @post = Post.find(params[:id])
         @post.update(posts_params)
         @team = @post.user_team.team
         redirect_to "/teams/#{@team.slug}"
