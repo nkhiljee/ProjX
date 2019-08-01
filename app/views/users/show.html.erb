@@ -2,9 +2,26 @@
     <div class="sidebar">
         <h4><b><%=@user.username%></b></h4><br>
         <h4>User Info:</h4><br>
-        <h6><%="Name: #{@user.name}" %></h6>
-        <h6><%="Username: #{@user.username}"%></h6>
-        <h6><%="Email: #{@user.email}"%></h6><br>
+        <ul class="list-unstyled">
+            <li class="media">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">Name:</h5>
+                    <%= "#{@user.name}" %><br><br>
+                </div>
+            </li>
+            <li class="media">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">Username:</h5>
+                    <%= "#{@user.username}" %><br><br>
+                </div>
+            </li>
+            <li class="media">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">Email:</h5>
+                    <%= "#{@user.email}" %><br><br><br>
+                </div>
+            </li>
+        </ul>
         <h4>User Stats:</h4><br>
         <h6>Number of Posts: <%=@user.num_posts%></h6>
         <h6>Number of Teams: <%=@user.num_teams%></h6>
@@ -17,7 +34,7 @@
                 <li class="media">
                   <div class="media-body">
                     <h5 class="mt-0 mb-1">Name:</h5>
-                    <%= "#{team.name}" %>
+                    <%= link_to "#{team.name}", "/teams/#{team.slug}" %>
                   </div>
                 </li>
             <% end %> 
