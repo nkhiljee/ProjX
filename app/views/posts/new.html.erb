@@ -9,7 +9,7 @@
         <%= f.label :link_a_file %><br>
         <%= f.text_field :file, :class => "form-control" %><br/>
         <%= f.label :Select_team_for_post %><br>
-        <%= f.collection_select :user_team_id, @uts, :id, :team_name %><br><br>
+        <%= f.collection_select :user_team_id, @uts, :id, :team_name, {:prompt=>true}, {:class=>"form-control"} %><br><br>
         <%= f.submit "Submit Post", :class => "btn btn-outline-success" %>
         <% end %>
     </div>

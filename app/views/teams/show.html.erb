@@ -14,16 +14,16 @@
         <ul>
             <% @projects.each do |project| %>
                 <h4>Project Name: <%= project.name %></h4>
-                <h6>Total days for project: <%= project.total_project_days%></h6>
-                <h6>Days left for Project: <%= project.days_left_for_project%></h6>
+                Total days for project: <%= project.total_project_days%><br>
+                Days left for Project: <%= project.days_left_for_project%>
             <% end %>
         </ul><br/>
         <br>
         <h4>Project Stats:</h4>        
-        <h6>Total posts made by team: <%= @team.num_posts%></h6>
-        <h6>Total number of team members: <%= @team.num_users%></h6>
-        <h6>Upcoming due project: <%= @team.next_project_due%></h6>
-        <br/>
+        Total posts made by team: <%= @team.num_posts%><br>
+        Total number of team members: <%= @team.num_users%><br>
+        Upcoming due project: <%= @team.next_project_due%>
+        <br/><br>
         <%= link_to '<button type="button" class="btn btn-success">Create a New Post</button>'.html_safe, new_post_path %><br/><br/>
     </div>
 
@@ -36,10 +36,13 @@
                     <li class="media">
                     <div class="media-body">
                         <h4 class="mt-0 mb-1"><%= "#{post.title}" %></h4><br>
-                        <i>"<%= post.description %>"</i><br><br>
-                        File Location: <%= post.file %><br>
-                        <%= ut.user.name %><br>
-                        <%= link_to '<button type="button" class="btn btn-outline-success">Edit This Post</button>'.html_safe, edit_post_path(post) %><br/><br/><br/>
+                        <h5><i>"<%= post.description %>"</i></h5><br>
+                        <div class="file_loc">File Location: <%= post.file %></div>
+                        <b><%= ut.user.name %></b><br>
+                        <% if ut.user.slug == session[:user_slug] %>
+                        <%= link_to '<button type="button" class="btn btn-outline-success">Edit This Post</button>'.html_safe, edit_post_path(post) %>
+                        <% end %>
+                        <br/><br/><br/>
                     </div>
                     </li>
                 <% end %>    

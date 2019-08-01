@@ -32,6 +32,17 @@
     visited: #FFF;
 }
 
+.file_loc
+{
+    font-size: 16px;
+}
+
+
+/* ABOVE ARE ONE TIME THINGS */
+
+
+
+
  #nav-bar
  {
      position: sticky;
@@ -115,6 +126,8 @@
 
  .sidebar
  {
+     background-image: linear-gradient(rgba(107, 122, 143, 0.99),rgba(107, 122, 143, 0.99)),url(/assets/sidebar_bg.jpeg);     
+     background-size: auto;
      background-color: #6B7A8F;
      color: #FFF;
      width: 33%;
