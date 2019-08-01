@@ -1,31 +1,60 @@
 <div class="user_feed">
     <div class="sidebar">
         <h4><b><%=@user.username%></b></h4><br>
-        <h4>User Info:</h4>
+        <h4>User Info:</h4><br>
         <h6><%="Name: #{@user.name}" %></h6>
         <h6><%="Username: #{@user.username}"%></h6>
-        <h6><%=@user.email%></h6><br>
-        <h4>User Stats:</h4>
+        <h6><%="Email: #{@user.email}"%></h6><br>
+        <h4>User Stats:</h4><br>
         <h6>Number of Posts: <%=@user.num_posts%></h6>
         <h6>Number of Teams: <%=@user.num_teams%></h6>
     </div>
 
     <div class="col1">
-        <h2><%="Teams"%></h2>
-        <ul>
+        <h2><%="Teams"%></h2><br>
+        <ul class="list-unstyled">
             <% @userteams.each do |team| %>
-                <li><%= link_to team.name, team_path(team.slug) %></li>
+                <li class="media">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-1">Name:</h5>
+                    <%= "#{team.name}" %>
+                  </div>
+                </li>
             <% end %> 
-        </ul>
+            </ul>
         <br>
-        <h2><%="Projects"%></h2>
-        <ul>
-            <% @projects.each do |project| %>
-                <li><%= "Name: #{project.name}" %></li>
-                <li><%= "Description: #{project.description}" %></li>
-                <li><%= "Start Date: #{project.start}" %></li>
-                <li><%= "End Date #{project.finish}" %></li>
-            <% end %> 
-        </ul>
+        <h2><%="Projects"%></h2><br>
+        <ul class="list-unstyled">
+                <% @projects.each do |project| %>
+                <li class="media">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-1">Name:</h5>
+                    <%= "#{project.name}" %>
+                  </div>
+                </li>
+        
+                <li class="media my-4">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-1">Description: </h5>
+                    <%="#{project.description}" %>
+                  </div>
+                </li>
+        
+                <li class="media my-4">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-1">Start Date:</h5>
+                    <%= "#{project.start}" %>
+                  </div>
+                </li>
+        
+                <li class="media">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">Finish Date:</h5>
+                        <%= "#{project.finish}" %>
+                    </div>
+                </li>
+                <% end %> 
+              </ul>
     </div>
 </div>
+
