@@ -14,17 +14,15 @@
 <%= f.password_field :password_confirmation, :class => "form-control" %><br>
 <%= f.submit :class => "btn btn-outline-success" %>
 <% end %>
-<BR><BR>
+<BR>
 <% if flash[:errors] %>
 <b>Errors:</b>
 <ul>
     <% flash[:errors].each do |e| %>
-        <li>
-            <%= e %>
-        </li>
+            <%= e %><br>
     <% end %>
 </ul>
 <% end %>
-
+<br><br>
 </div>
 </div>
