@@ -13,16 +13,17 @@
         </ul><br>
         <ul>
             <% @projects.each do |project| %>
-                <h4>Project Name: <%= project.name %></h4>
+                <h3><b><%= project.name %></b></h3><br>
+                <h4>Project Stats:</h4>        
+
                 Total days for project: <%= project.total_project_days%><br>
-                Days left for Project: <%= project.days_left_for_project%>
+                Days left for Project: <%= project.days_left_for_project%><br>
+                Total posts made by team: <%= @team.num_posts%><br>
+                Total number of team members: <%= @team.num_users%><br>
+                Upcoming due project: <%= @team.next_project_due%>
             <% end %>
-        </ul><br/>
-        <br>
-        <h4>Project Stats:</h4>        
-        Total posts made by team: <%= @team.num_posts%><br>
-        Total number of team members: <%= @team.num_users%><br>
-        Upcoming due project: <%= @team.next_project_due%>
+        </ul>
+
         <br/><br>
         <%= link_to '<button type="button" class="btn btn-success">Create a New Post</button>'.html_safe, new_post_path %><br/><br/>
     </div>

@@ -73,7 +73,8 @@
 
  #nav-bar ul li a:hover
  {
-     color: #DDD!important;
+    text-shadow: 1px 1px #000000;
+
  }
 
  .navbar
@@ -95,6 +96,12 @@
 /* END NAVIGATION */
 /* START CAROUSEL */
 
+.carousel-button
+{
+    top: 50%;
+    transform: translateY(-30%);
+    bottom: initial!important;   
+}
 
 .carousel-caption
 {
@@ -122,6 +129,7 @@
  {
      height: calc(100vh - 61px)!important;
      display: flex;
+     overflow: scroll;
  } 
 
  .sidebar
@@ -135,6 +143,10 @@
      height: 100%;
      padding-top: 30px;
      padding-left: 20px;
+ }
+ .sidebar h3
+ {
+    text-shadow: 2px 2px #000000;
  }
  
  .col1
@@ -159,8 +171,14 @@
     text-align: center;
     width: 33%;
     padding-top: 40px;
+    
 }
 
+.center b
+{
+    color: red;
+    font-size: 20px;
+}
 
 /* TESTIMONIAL */
 
@@ -193,7 +211,7 @@
     color: #efefef;
     background-attachment: fixed;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
 .container
 {
@@ -229,7 +247,7 @@
      padding: 5px;
  }
 
- .container p
+ .container h5
  {
      font-size: 12px;
      color: #CCC;
