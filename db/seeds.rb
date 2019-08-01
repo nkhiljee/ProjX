@@ -23,7 +23,7 @@ u5 = User.create(name: "Saud Badar", username: "sbadar", email: "sbadar@gmail.co
 u6 = User.create(name: "Paamela Wright", username: "pwright", email: "pwright@gmail.com", password: "password")
 
 p1 = Project.create(name: "Oracle-Cloud", description: "Design backend architecture. Develop backend transaction systems. Connect and test node clusters. Impliment cloud based transactions methods for backend development.", start: "03/02/2019", finish: "10/10/2019", team_id: t1.id)
-p2 = Project.create(name: "Tesla-Autopilot", description: "Collaborate with internal experts from Uber and Lyft. Design early wireframe for backend architecture. Begin testing for autonomous algorithms. Use test subjects donated from DaimlerBenz.", start: "04/21/2019", finish: "11/15/2019", team_id: t2.id)
+p2 = Project.create(name: "Tesla-Autopilot", description: "Collaborate with internal experts from Uber and Lyft. Design early wireframe for backend architecture. Begin testing for autonomous algorithms. Use test subjects donated from DaimlerBenz.", start: "04/04/2019", finish: "11/12/2019", team_id: t2.id)
 
 
 ut1 = UserTeam.create(user_id: u1.id, team_id: t1.id)

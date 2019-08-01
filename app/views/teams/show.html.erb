@@ -1,53 +1,52 @@
-<h1>Team Name:</h1> 
-<h3><%= @team.name%></h3> 
-
-<h1>Team Members:</h1>
-<ul>
-    <% @userteam.each do |ut| %>
-        <li><%= link_to ut.user.name, user_path(@user.slug)%></li>
-    <%end %>
-</ul>
-
-<h6>Total posts made by team: <%= @team.num_posts%></h6>
-<h6>Total number of team members: <%= @team.num_users%></h6>
-<h6>Upcoming due project: <%= @team.next_project_due%></h6>
-<br/>
-<ul>
-<%@projects.each do |project| %>
-<li>
-<h5>Project Name: <%= project.name %></h5>
-<h6>Total days for project: <%= project.total_project_days%>
-<h6>Days left for Project: <%= project.days_left_for_project%></h6>
-</li>
-<% end %>
-</ul><br/>
-
-
-
-
-<%= link_to '<button type="button">Create a New Post</button>'.html_safe, new_post_path %><br/>
-<br/>
-<h2><%="Posts"%></h2>
-
-<ul>
-    <% @userteam.each do |ut| %>
-
-        <% ut.posts.each do |post| %>
-                <li><p>Post Title: <%= post.title %></li></p>
-                <li><p>Project Description: <%= post.description %></li></p>
-                <li><p>Project files: <%= post.file %></li></p>
-
-                <li>
-                        <p>Posted by: <%= ut.user.username %></p>
+<div class="user_feed">
+    <div class="sidebar">
+        <h3><b><%= @team.name%></b></h3> <br>
+        <h4>Team Members:</h4>
+        <ul class="list-unstyled">
+            <% @userteam.each do |ut| %>
+                <li class="media">
+                    <div class="media-body">
+                        <%= link_to ut.user.name, user_path(@user.slug), :class => "card-link"%>
+                    </div>
                 </li>
-                <%= link_to '<button type="button">Edit This Post</button>'.html_safe, edit_post_path(post) %><br/>
-                <br/>
-                <br/>
-        <%end %>
-    <% end %> 
+            <% end %> 
+        </ul><br>
+        <ul>
+            <% @projects.each do |project| %>
+                <h4>Project Name: <%= project.name %></h4>
+                <h6>Total days for project: <%= project.total_project_days%></h6>
+                <h6>Days left for Project: <%= project.days_left_for_project%></h6>
+            <% end %>
+        </ul><br/>
+        <br>
+        <h4>Project Stats:</h4>        
+        <h6>Total posts made by team: <%= @team.num_posts%></h6>
+        <h6>Total number of team members: <%= @team.num_users%></h6>
+        <h6>Upcoming due project: <%= @team.next_project_due%></h6>
+        <br/>
+        <%= link_to '<button type="button" class="btn btn-success">Create a New Post</button>'.html_safe, new_post_path %><br/><br/>
+    </div>
 
-    
-</ul>
 
+    <div class="col1">
+        <h2><%="Posts"%></h2><br>
+        <ul class="list-unstyled">
+            <% @userteam.each do |ut| %>
+                <% ut.posts.each do |post| %>
+                    <li class="media">
+                    <div class="media-body">
+                        <h4 class="mt-0 mb-1"><%= "#{post.title}" %></h4><br>
+                        <i>"<%= post.description %>"</i><br><br>
+                        File Location: <%= post.file %><br>
+                        <%= ut.user.name %><br>
+                        <%= link_to '<button type="button" class="btn btn-outline-success">Edit This Post</button>'.html_safe, edit_post_path(post) %><br/><br/><br/>
+                    </div>
+                    </li>
+                <% end %>    
+            <% end %>
+        </ul>
+
+    </div>
+</div>
 
 
