@@ -16,6 +16,7 @@
 <%@projects.each do |project| %>
 <li>
 <h5>Project Name: <%= project.name %></h5>
+<h6>Total days for project: <%= project.total_project_days%>
 <h6>Days left for Project: <%= project.days_left_for_project%></h6>
 </li>
 <% end %>
@@ -32,7 +33,7 @@
     <% @userteam.each do |ut| %>
 
         <% ut.posts.each do |post| %>
-                <li><p>Project Title: <%= post.title %></li></p>
+                <li><p>Post Title: <%= post.title %></li></p>
                 <li><p>Project Description: <%= post.description %></li></p>
                 <li><p>Project files: <%= post.file %></li></p>
 

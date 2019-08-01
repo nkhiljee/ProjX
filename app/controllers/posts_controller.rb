@@ -37,6 +37,7 @@ class PostsController < ApplicationController
         redirect_to "/teams/#{@team.slug}"
     end
 
+
     private
     def posts_params
         params.require(:post).permit(:title, :description, :file, :user_team_id)
