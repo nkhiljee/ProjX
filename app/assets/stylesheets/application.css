@@ -26,6 +26,12 @@
 
 }
 
+.card-link
+{
+    color: #FFF;
+    visited: #FFF;
+}
+
  #nav-bar
  {
      position: sticky;
@@ -36,7 +42,7 @@
 
  .navbar-brand img
  {
-    height: 35px;
+    height: 40px;
     padding-left: 30px;
  }
 
@@ -49,6 +55,9 @@
  {
      float: right;
      text-align: left;
+     font-family: Arial;
+     font-size: 16px;
+
  }
 
  #nav-bar ul li a:hover
@@ -111,7 +120,7 @@
      width: 33%;
      float: left;
      height: 100%;
-     padding-top: 20px;
+     padding-top: 30px;
      padding-left: 20px;
  }
  
@@ -122,8 +131,10 @@
      float: left;
      width: 100%;
      height: 100%;
-     padding-top: 20px;
-     padding-left: 40px;
+     padding-top: 30px;
+     padding-left: 65px;
+     padding-right: 60px;
+     overflow: scroll;
  }
 
 /* FINISH USER PAGE */
@@ -202,5 +213,11 @@
  {
      background: #333;
      color: #FFF;
-     padding: 12px;
+     padding: 5px;
+ }
+
+ .container p
+ {
+     font-size: 12px;
+     color: #CCC;
  }
