@@ -1,14 +1,14 @@
 <div class="user_feed">
-        <div class="center">
+<div class="center">
 <h1>Please Login</h1>
 <%= form_with url: '/login', method: "post" do |f| %>
 <%= f.label :email, "Email" %><br>
-<%= f.text_field :email %><br><br>
+<%= f.text_field :email, :class => "form-control" %><br>
 <%= f.label :password, "Password" %><br>
-<%= f.password_field :password %><br><br>
-<%= f.submit "Login" %><br><br>
+<%= f.password_field :password, :class => "form-control" %><br>
+<%= f.submit "Login", :class => "btn btn-outline-success"  %>
 <% end %>
-<%= link_to'<button type="button">New User</button>'.html_safe, new_user_path %>
+<%= link_to'<button type="button" class="btn btn-outline-success">New User</button>'.html_safe, new_user_path %>
 <BR><BR>
     <% if flash[:errors] %>
     <b>Errors:</b>
