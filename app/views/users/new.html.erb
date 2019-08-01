@@ -3,16 +3,16 @@
 <h1>Create New User</h1>
 <%= form_for @user do |f| %>
 <%= f.label :name, "Full Name" %><br>
-<%= f.text_field :name %><br><br>
+<%= f.text_field :name, :class => "form-control" %><br>
 <%= f.label :username, "Desired Username" %><br>
-<%= f.text_field :username %><br><br>
+<%= f.text_field :username, :class => "form-control" %><br>
 <%= f.label :email, "Email" %><br>
-<%= f.text_field :email %><br><br>
+<%= f.text_field :email, :class => "form-control" %><br>
 <%= f.label :password, "Password" %><br>
-<%= f.password_field :password %><br><br>
+<%= f.password_field :password, :class => "form-control" %><br>
 <%= f.label :password_confirmation, "Confirm Password" %><br>
-<%= f.password_field :password_confirmation %><br><br>
-<%= f.submit %>
+<%= f.password_field :password_confirmation, :class => "form-control" %><br>
+<%= f.submit :class => "btn btn-outline-success" %>
 <% end %>
 <BR><BR>
 <% if flash[:errors] %>
