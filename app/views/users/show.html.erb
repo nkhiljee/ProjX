@@ -45,14 +45,14 @@
                 <% @projects.each do |project| %>
                 <li class="media">
                   <div class="media-body">
-                    <h5 class="mt-0 mb-1">Name:</h5>
+                    <h5 class="mt-0 mb-1">Client-Project:</h5>
                     <%= "#{project.name}" %>
                   </div>
                 </li>
         
                 <li class="media my-4">
                   <div class="media-body">
-                    <h5 class="mt-0 mb-1">Description: </h5>
+                    <h5 class="mt-0 mb-1">Deliverables-Project Overview: </h5>
                     <%="#{project.description}" %>
                     
                   </div>
@@ -67,7 +67,7 @@
         
                 <li class="media">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">Finish Date:</h5>
+                        <h5 class="mt-0 mb-1">End Date:</h5>
                         <%= "#{project.finish}" %>
                     </div>
                 </li>
