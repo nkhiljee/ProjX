@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
     
     def home
         # byebug
-       
         if session[:user_id]
             @userSlug = current_user.slug
         end

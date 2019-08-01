@@ -4,7 +4,7 @@
         <%= form_for @post do  |f| %>
         <%= f.label :title %><br>
         <%= f.text_field :title, :class => "form-control" %><br/>
-        <%= f.label :description %><br>
+        <%= f.label :post_body %><br>
         <%= f.text_area :description, :class => "form-control" %><br/>
         <%= f.label :link_a_file %><br>
         <%= f.text_field :file, :class => "form-control" %><br/>
@@ -14,3 +14,5 @@
         <% end %>
     </div>
 </div>
+
+

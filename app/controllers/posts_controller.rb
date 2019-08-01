@@ -2,11 +2,8 @@ class PostsController < ApplicationController
     
     def new
         user = User.find(session[:user_id])
-        # user = User.first
-
         @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
         @post = Post.new
-        # byebug
     end 
 
     def create
@@ -15,21 +12,29 @@ class PostsController < ApplicationController
         post = Post.create(posts_params)
         redirect_to "/teams/#{@team.slug}"
 
-        # byebug
     end
 
     def edit
+        # byebug
         @post = Post.find(params[:id])
+        user = User.find(session[:user_id])
+        @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
+        
     end
 
     def update
-        @post = Post.update
-        redirect_to @post
+        # byebug 
+        @post.update(posts_params)
+        @team = @post.user_team.team
+        redirect_to "/teams/#{@team.slug}"
     end
 
     def destroy
-        @post = Post.destroy
-        redirect_to posts_path
+        # byebug
+        @post = Post.find(params[:id])
+        @post.destroy
+        @team = @post.user_team.team
+        redirect_to "/teams/#{@team.slug}"
     end
 
     private
