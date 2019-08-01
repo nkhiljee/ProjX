@@ -7,15 +7,19 @@ class PostsController < ApplicationController
     end 
 
     def create
+        @post = Post.new(posts_params)
         @ut = UserTeam.find(posts_params[:user_team_id])
         @team = Team.find(@ut.team_id)
-        post = Post.create(posts_params)
-        redirect_to "/teams/#{@team.slug}"
-
+        if @post.valid?
+            @post.save
+            redirect_to "/teams/#{@team.slug}"
+        else
+            flash[:errors] = @post.errors.full_messages
+            redirect_to new_post_path
+        end
     end
 
     def edit
-        # byebug
         @post = Post.find(params[:id])
         user = User.find(session[:user_id])
         @uts = UserTeam.all.select {|ut| ut.user_id == user.id}
@@ -23,11 +27,16 @@ class PostsController < ApplicationController
     end
 
     def update
-        # byebug 
         @post = Post.find(params[:id])
-        @post.update(posts_params)
         @team = @post.user_team.team
-        redirect_to "/teams/#{@team.slug}"
+        @post.assign_attributes(posts_params)
+        if @post.valid?
+            @post.update(posts_params)
+            redirect_to "/teams/#{@team.slug}"
+        else
+            flash[:errors] = @post.errors.full_messages
+            redirect_to edit_post_path
+        end
     end
 
     def destroy

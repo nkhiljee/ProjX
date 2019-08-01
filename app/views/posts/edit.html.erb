@@ -9,14 +9,22 @@
         <%= f.label :link_a_file %><br>
         <%= f.text_field :file, :class => "form-control" %><br/>
         <%= f.label :Select_team_for_post %><br>
-        <%= f.collection_select :user_team_id, @uts, :id, :team_name, {:prompt=>true}, {:class=>"form-control"} %><br>
+        <%= f.collection_select :user_team_id, @uts, :id, :team_name, {:prompt=>false}, {:class=>"form-control"} %><br>
         <%= f.submit "Update Post", :class => "btn btn-outline-success" %>
         <% end %>
         <%= form_for @post, method: :delete do |f| %>
         <%= f.submit "Delete Post", :class => "btn btn-outline-success" %>
         <% end %>
         <%= link_to '<button type="button" class="btn btn-outline-success">Create a New Post</button>'.html_safe, new_post_path %>
-
+         <BR>
+        <% if flash[:errors] %>
+        <b>Errors:</b>
+        <ul>
+            <% flash[:errors].each do |e| %>
+                <%= e %>  <br/> 
+            <% end %>
+        </ul>
+        <% end %>
     </div>
 </div>
 
